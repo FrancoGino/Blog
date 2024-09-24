@@ -2,6 +2,7 @@
     <div class="form-container">
         <h2 class="text-center mb-4">Crear Publicacion</h2>
         <form action="{{ url }}" method="POST">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="titulo">titulo:</label>
                 <input type="text" class="form-control" id="titulo" name="titulo" required>

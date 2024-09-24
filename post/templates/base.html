@@ -9,8 +9,8 @@
     <link href="{% static 'style.css' %}" rel="stylesheet">
 </head>
 <body>
-    <header><h2>{% block header %}{% endblock %}</h2></header>
-    {% include 'includes/navbar.html' %}
+    <header>{% block header %}{% include 'includes/navbar.html' %}{% endblock %}</header>
+    
     <div class="content">
         {% block content %}{% endblock %}
     </div>

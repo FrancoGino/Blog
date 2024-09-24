@@ -3,12 +3,23 @@
 
 {% block title %} Nuevo Post {% endblock %}
 
-{% block header %}
-    Crear Nueva Publicacion
-{% endblock %}
-
 {% block content %}
 
-    {% include 'includes/form.html' %}
+    <div class="message-box">
+        <form action="{% url 'crear_post' %}" method="POST">
+            {% csrf_token %}
+            
+            <label for="titulo" class="label">Título</label>
+            <input type="text" id="titulo" name="titulo" class="input-titulo" required>
+
+            <label for="contenido" class="label">Contenido</label>
+            <textarea id="contenido" name="contenido" class="input-contenido" required></textarea>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-crear">Crear</button>
+                <a href="{% url 'home' %}" class="btn-cancelar">Cancelar</a>
+            </div>
+        </form>
+    </div>
 
 {% endblock %}

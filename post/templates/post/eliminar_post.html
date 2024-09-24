@@ -11,11 +11,19 @@
 
 {% block content %}
 
-    <h2>Confirmar Eliminacion</h2>
-    <p>¿Esta seguro que desea eliminar este post?</p>
+<div class="confirm-delete-box">
+    <h2 class="delete-title">Confirmar Eliminación</h2>
+    
+    <p class="delete-message">¿Está seguro de que desea eliminar este post?</p>
+    
     <form method="post">
-        <button type="submit">Eliminar</button>
+        {% csrf_token %}
+        <div class="form-actions">
+            <button type="submit" class="btn-eliminar">Eliminar</button>
+            <a href="{% url 'listar_post' %}" class="btn-cancelar">Cancelar</a>
+        </div>
     </form>
-    <a href="{% url 'listar_post' %}">Cancelar</a>
+</div>
+
 
 {% endblock %}
